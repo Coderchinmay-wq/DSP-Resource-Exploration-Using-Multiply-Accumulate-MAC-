@@ -1,0 +1,27 @@
+[
+  {
+    "directory": "E:\\Vitis_HLS_works\\DSP_MAC",
+    "arguments": [
+      "D:\\AMDDesignTools\\2026.1\\Vitis\\win64\\tools\\clang-16\\bin\\clang++.exe",
+      "--sysroot=D:\\AMDDesignTools\\2026.1\\Vitis\\tps\\mingw\\10.0.0\\win64.o\\nt",
+      "-fhls",
+      "-hls-syn-headers-dir=D:\\AMDDesignTools\\2026.1\\Vitis\\common\\technology\\autopilot",
+      "-fhlstoplevel=mac",
+      "-c",
+      "E:\\Vitis_HLS_works\\mac.cpp"
+    ],
+    "file": "E:\\Vitis_HLS_works\\mac.cpp"
+  },
+  {
+    "directory": "E:\\Vitis_HLS_works\\DSP_MAC",
+    "arguments": [
+      "D:\\AMDDesignTools\\2026.1\\Vitis\\win64\\tools\\clang-16\\bin\\clang++.exe",
+      "--sysroot=D:\\AMDDesignTools\\2026.1\\Vitis\\tps\\mingw\\10.0.0\\win64.o\\nt",
+      "-fhls-tb",
+      "-hls-sim-headers-dir=D:\\AMDDesignTools\\2026.1\\Vitis\\include",
+      "-c",
+      "E:\\Vitis_HLS_works\\mac_tb.cpp"
+    ],
+    "file": "E:\\Vitis_HLS_works\\mac_tb.cpp"
+  }
+]
