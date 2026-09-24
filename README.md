@@ -141,3 +141,70 @@ Using DSP resources can provide better arithmetic performance and reduce the amo
 ### Why is BRAM utilization zero?
 
 The MAC design does not contain arrays, buffers, or large memory structures. Therefore, no Block RAM is required.
+
+## 🔬 Design Comparison
+### Design A
+`Output = A + B`
+
+This design does not require multiplication and therefore does not inherently require DSP resources.
+
+Design B
+`Output = (A × B) + C`
+
+This design contains multiplication and therefore uses DSP resources.
+
+### Extended Design
+
+If the design is changed to:
+
+`Output = A × B + C × D`
+
+there are two multiplication operations. DSP utilization is therefore expected to increase, depending on synthesis optimization and resource sharing.
+
+## 📸 Screenshots
+C Simulation
+
+Synthesis Report
+
+Hardware Interfaces
+
+Bind Operation Report
+
+## 📚 Experiment Outcome
+
+After completing this experiment, the following concepts were understood:
+
+1. FPGA DSP slices.
+2. MAC implementation using Vitis HLS.
+3. C simulation and verification.
+4. C synthesis and RTL generation.
+5. FPGA resource utilization.
+6. DSP mapping of multiplication operations.
+7. HLS-generated hardware interfaces.
+8. Timing and latency analysis.
+
+## 📁 Project Structure
+```
+DSP-Resource-Exploration/
+│
+├── README.md
+│
+├── src/
+│   ├── mac.cpp
+│   └── mac_tb.cpp
+│
+├── screenshots/
+│   ├── c-simulation.png
+│   ├── synthesis-report.png
+│   ├── hardware-interfaces.png
+│   └── bind-op-report.png
+│
+└── report/
+    └── DSP_Resource_Exploration_Completed.docx
+```
+## 👨‍💻 Author
+
+Chinmay Yalawatti
+
+Electronics & Communication Engineering
+KLE Technological University
