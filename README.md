@@ -45,3 +45,99 @@ int mac(int A, int B, int C)
 {
     return (A * B) + C;
 }
+```
+
+## Testbench
+
+The design was verified using the following test cases:
+
+| Test |  A |  B |  C | Expected Output |
+| ---- | -- | -- | -- | --------------- |
+| 1    | 10 |  5 |  3 |              53 |
+| 2    |  8 |  7 |  4 |              60 |
+| 3    | 12 |  6 |  9 |              81 |
+
+## 🧪 C Simulation
+
+The C simulation was completed successfully with 0 errors.
+
+### Simulation Output
+```
+Test 1: 53
+Test 2: 60
+Test 3: 81
+```
+The simulation confirms that the MAC function produces the expected results.
+
+## ⚙️ C Synthesis
+
+C synthesis was successfully completed in Vitis HLS.
+
+The C/C++ implementation was converted into RTL hardware targeting the `xc7a100tcsg324-1` Artix-7 device.
+| Parameter       |     Result |
+| --------------- | ---------: |
+| Target Clock    |   10.00 ns |
+| Estimated Clock |   6.860 ns |
+| Estimated Fmax  | 145.77 MHz |
+
+## 📊 Resource Utilization
+
+The synthesis report produced the following resource estimates:
+| FPGA Resource | Utilization |
+| ------------- | ----------: |
+| LUT           |         106 |
+| FF            |         200 |
+| BRAM          |           0 |
+| DSP           |           3 |
+
+## 🔍 Hardware Interfaces
+
+The synthesized design contains the following interfaces:
+| Port        | Direction |  Width |
+| ----------- | --------- | -----: |
+| A           | Input     | 32-bit |
+| B           | Input     | 32-bit |
+| C           | Input     | 32-bit |
+| `ap_return` | Output    | 32-bit |
+
+The generated HLS control interface includes:
+
+- `ap_clk`
+- `ap_rst`
+- `ap_ctrl_hs`
+
+## 🔧 Bind Operation Analysis
+
+The synthesis report shows that the multiplication operation:
+
+`A × B`
+
+is mapped to DSP resources.
+
+The addition operation:
+
+`(A × B) + C`
+
+is implemented as part of the generated hardware datapath.
+
+## 📈 Performance
+
+The synthesized MAC module has an estimated latency of approximately 20 ns with an initiation interval of 3 cycles according to the Vitis HLS synthesis report.
+
+The target clock period was 10 ns, while the estimated achievable clock period was 6.860 ns.
+
+## 🧠 Key Learning
+### Why are DSP slices used?
+
+FPGA DSP slices are dedicated hardware resources optimized for arithmetic operations such as:
+
+Multiplication
+Addition
+Multiply-Accumulate
+Signal-processing operations
+
+Using DSP resources can provide better arithmetic performance and reduce the amount of general-purpose FPGA logic required for multiplication.
+
+### Why is BRAM utilization zero?
+
+The MAC design does not contain arrays, buffers, or large memory structures. Therefore, no Block RAM is required.
